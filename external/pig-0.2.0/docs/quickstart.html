@@ -1,0 +1,518 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="Apache Forrest" name="Generator">
+<meta name="Forrest-version" content="0.8">
+<meta name="Forrest-skin-name" content="pelt">
+<title>Pig Quick Start</title>
+<link type="text/css" href="skin/basic.css" rel="stylesheet">
+<link media="screen" type="text/css" href="skin/screen.css" rel="stylesheet">
+<link media="print" type="text/css" href="skin/print.css" rel="stylesheet">
+<link type="text/css" href="skin/profile.css" rel="stylesheet">
+<script src="skin/getBlank.js" language="javascript" type="text/javascript"></script><script src="skin/getMenu.js" language="javascript" type="text/javascript"></script><script src="skin/fontsize.js" language="javascript" type="text/javascript"></script>
+<link rel="shortcut icon" href="">
+</head>
+<body onload="init()">
+<script type="text/javascript">ndeSetTextSize();</script>
+<div id="top">
+<!--+
+    |breadtrail
+    +-->
+<div class="breadtrail">
+<a href="http://www.apache.org/">Apache</a> &gt; <a href="http://hadoop.apache.org/">Hadoop</a> &gt; <a href="http://hadoop.apache.org/pig/">Pig</a><script src="skin/breadcrumbs.js" language="JavaScript" type="text/javascript"></script>
+</div>
+<!--+
+    |header
+    +-->
+<div class="header">
+<!--+
+    |start group logo
+    +-->
+<div class="grouplogo">
+<a href="http://hadoop.apache.org/"><img class="logoImage" alt="Hadoop" src="images/hadoop-logo.jpg" title="Apache Hadoop"></a>
+</div>
+<!--+
+    |end group logo
+    +-->
+<!--+
+    |start Project Logo
+    +-->
+<div class="projectlogo">
+<a href="http://hadoop.apache.org/pig/"><img class="logoImage" alt="Pig" src="images/pig-logo.gif" title="A platform for analyzing large datasets."></a>
+</div>
+<!--+
+    |end Project Logo
+    +-->
+<!--+
+    |start Search
+    +-->
+<div class="searchbox">
+<form action="http://www.google.com/search" method="get" class="roundtopsmall">
+<input value="" name="sitesearch" type="hidden"><input onFocus="getBlank (this, 'Search the site with google');" size="25" name="q" id="query" type="text" value="Search the site with google">&nbsp; 
+                    <input name="Search" value="Search" type="submit">
+</form>
+</div>
+<!--+
+    |end search
+    +-->
+<!--+
+    |start Tabs
+    +-->
+<ul id="tabs">
+<li>
+<a class="unselected" href="http://hadoop.apache.org/pig/">Project</a>
+</li>
+<li>
+<a class="unselected" href="http://wiki.apache.org/pig/">Wiki</a>
+</li>
+<li class="current">
+<a class="selected" href="index.html">Pig 1.0.0 Documentation</a>
+</li>
+</ul>
+<!--+
+    |end Tabs
+    +-->
+</div>
+</div>
+<div id="main">
+<div id="publishedStrip">
+<!--+
+    |start Subtabs
+    +-->
+<div id="level2tabs"></div>
+<!--+
+    |end Endtabs
+    +-->
+<script type="text/javascript"><!--
+document.write("Last Published: " + document.lastModified);
+//  --></script>
+</div>
+<!--+
+    |breadtrail
+    +-->
+<div class="breadtrail">
+
+             &nbsp;
+           </div>
+<!--+
+    |start Menu, mainarea
+    +-->
+<!--+
+    |start Menu
+    +-->
+<div id="menu">
+<div onclick="SwitchMenu('menu_selected_1.1', 'skin/')" id="menu_selected_1.1Title" class="menutitle" style="background-image: url('skin/images/chapter_open.gif');">Overview</div>
+<div id="menu_selected_1.1" class="selectedmenuitemgroup" style="display: block;">
+<div class="menuitem">
+<a href="index.html">Overview</a>
+</div>
+<div class="menupage">
+<div class="menupagetitle">Quick Start</div>
+</div>
+<div class="menuitem">
+<a href="tutorial.html">Tutorial</a>
+</div>
+<div class="menuitem">
+<a href="piglatin.html">Pig Latin Manual</a>
+</div>
+<div class="menuitem">
+<a href="cookbook.html">Cookbook</a>
+</div>
+<div class="menuitem">
+<a href="udf.html">UDF Manual</a>
+</div>
+<div class="menuitem">
+<a href="http://hadoop.apache.org/pig/javadoc/docs/api/">API Docs</a>
+</div>
+<div class="menuitem">
+<a href="http://wiki.apache.org/pig/">Wiki</a>
+</div>
+<div class="menuitem">
+<a href="http://wiki.apache.org/pig/FAQ">FAQ</a>
+</div>
+<div class="menuitem">
+<a href="http://hadoop.apache.org/pig/releases.html">Release Notes</a>
+</div>
+</div>
+<div id="credit"></div>
+<div id="roundbottom">
+<img style="display: none" class="corner" height="15" width="15" alt="" src="skin/images/rc-b-l-15-1body-2menu-3menu.png"></div>
+<!--+
+  |alternative credits
+  +-->
+<div id="credit2"></div>
+</div>
+<!--+
+    |end Menu
+    +-->
+<!--+
+    |start content
+    +-->
+<div id="content">
+<div title="Portable Document Format" class="pdflink">
+<a class="dida" href="quickstart.pdf"><img alt="PDF -icon" src="skin/images/pdfdoc.gif" class="skin"><br>
+        PDF</a>
+</div>
+<h1>Pig Quick Start</h1>
+<div id="minitoc-area">
+<ul class="minitoc">
+<li>
+<a href="#req">Requirements</a>
+</li>
+<li>
+<a href="#Building+Pig">Building Pig </a>
+</li>
+<li>
+<a href="#Running+Pig">Running Pig</a>
+<ul class="minitoc">
+<li>
+<a href="#Overview">Overview</a>
+</li>
+<li>
+<a href="#Local+Mode">Local Mode</a>
+</li>
+<li>
+<a href="#Hadoop+Mode">Hadoop Mode</a>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+  
+    
+<a name="N1000D"></a><a name="req"></a>
+<h2 class="h3">Requirements</h2>
+<div class="section">
+<p>
+<strong>Unix</strong> and <strong>Windows</strong> users need the following:</p>
+<ol>
+		  
+<li> 
+<strong>Hadoop 18</strong>: <a href="http://hadoop.apache.org/core/">http://hadoop.apache.org/core/</a>
+</li>
+		  
+<li> 
+<strong>Java 1.6</strong>, preferably from Sun: <a href="http://java.sun.com/javase/downloads/index.jsp">http://java.sun.com/javase/downloads/index.jsp</a>. Set JAVA_HOME to the root of your Java installation.</li>
+		  
+<li> 
+<strong>Ant</strong> for builds: <a href="http://ant.apache.org/">http://ant.apache.org/</a>.</li>
+		  
+<li> 
+<strong>JUnit</strong> for unit tests: <a href="http://junit.sourceforge.net/">http://junit.sourceforge.net/</a>.</li>
+		
+</ol>
+<p>
+<strong>Windows</strong> users need to install Cygwin and the Perl package: <a href="http://www.cygwin.com/"> http://www.cygwin.com/</a>.</p>
+</div>
+        
+    
+<a name="N1004F"></a><a name="Building+Pig"></a>
+<h2 class="h3">Building Pig </h2>
+<div class="section">
+<ol>
+	  
+<li> Check out the Pig code from SVN: <em>svn co http://svn.apache.org/repos/asf/hadoop/pig/trunk</em>. </li>
+	  
+<li> Build the code from the top directory: <em>ant</em>. If the build is successful, you should see the <em>pig.jar</em> created in that directory. </li>	
+	  
+<li> Validate your <em>pig.jar</em> by running a unit test: <em>ant test</em>
+</li>
+     
+</ol>
+</div>
+
+
+<a name="N10070"></a><a name="Running+Pig"></a>
+<h2 class="h3">Running Pig</h2>
+<div class="section">
+<a name="N10076"></a><a name="Overview"></a>
+<h3 class="h4">Overview</h3>
+<p>This section discusses the Pig run modes and the different ways you can run Pig using these modes. </p>
+<a name="N1007F"></a><a name="Run+Modes"></a>
+<h4>Run Modes</h4>
+<p>Pig has two run modes or exectypes, local and hadoop (mapreduce).  </p>
+<ul>
+
+<li>
+<p> 
+<strong>Local Mode</strong>: To run Pig in local mode, you need access to a single machine.  </p>
+
+</li>
+
+<li>
+<p> 
+<strong>Hadoop (mapreduce) Mode</strong>: To run Pig in hadoop (mapreduce) mode, you need access to a Hadoop cluster and HDFS installation. </p>
+
+</li>
+
+</ul>
+<p>To get a listing of all Pig commands, including the run modes, use:  
+</p>
+<pre class="code">
+$ pig &ndash;help
+</pre>
+<a name="N100A3"></a><a name="Run+Ways"></a>
+<h4>Run Ways</h4>
+<p>You can run Pig three ways &ndash; using either local mode or hadoop (mapreduce) mode: </p>
+<ul>
+
+<li>
+<p> 
+<strong>Grunt Shell</strong>: Enter Pig commands manually using Pig&rsquo;s interactive shell, Grunt.  </p>
+
+</li>
+
+<li>
+<p> 
+<strong>Script File</strong>: Place Pig commands in a script file and run the script. </p>
+
+</li>
+
+<li>
+<p> 
+<strong>Embedded Program</strong>: Embed Pig commands in a host language and run the program. </p>
+
+</li>
+
+</ul>
+<p>Note: Also see the Pig Latin exec and run commands. </p>
+<a name="N100CB"></a><a name="Sample+Code"></a>
+<h4>Sample Code</h4>
+<p>The examples in this section are based on these Pig Latin statements, which extract all user IDs from the /etc/passwd file.  </p>
+<p>To set environment variables, use the right command for your shell:  </p>
+<ul>
+		
+<li>
+<p> setenv PIGDIR /pig  (tcsh, csh)  </p>
+		
+</li>
+		
+<li>
+<p> export PIGDIR=/pig (bash, sh, ksh) </p>
+		
+</li>
+	
+</ul>
+<p>The examples in the Running Pig section use export.</p>
+<a name="N100E7"></a><a name="id.pig"></a>
+<h5>id.pig</h5>
+<pre class="code">
+A = load 'passwd' using PigStorage(':'); 
+B = foreach A generate $0 as id;
+dump B; 
+store B into &lsquo;id.out&rsquo;;
+</pre>
+<a name="N100F2"></a><a name="idlocal.java"></a>
+<h5>idlocal.java</h5>
+<pre class="code">
+import java.io.IOException;
+import org.apache.pig.PigServer;
+public class idlocal{ 
+public static void main(String[] args) {
+try {
+    PigServer pigServer = new PigServer("local");
+    runIdQuery(pigServer, "passwd");
+    }
+    catch(Exception e) {
+    }
+ }
+public static void runIdQuery(PigServer pigServer, String inputFile) throws IOException {
+    pigServer.registerQuery("A = load '" + inputFile + "' using PigStorage(':');");
+    pigServer.registerQuery("B = foreach A generate $0 as id;");
+    pigServer.store("B", "id.out");
+ }
+}
+</pre>
+<a name="N100FD"></a><a name="idhadoop.java"></a>
+<h5>idhadoop.java</h5>
+<pre class="code">
+import java.io.IOException;
+import org.apache.pig.PigServer;
+public class idhadoop {
+   public static void main(String[] args) {
+   try {
+     PigServer pigServer = new PigServer("mapreduce");
+     runIdQuery(pigServer, "passwd");
+   }
+   catch(Exception e) {
+   }
+}
+public static void runIdQuery(PigServer pigServer, String inputFile) throws IOException {
+   pigServer.registerQuery("A = load '" + inputFile + "' using PigStorage(':');")
+   pigServer.registerQuery("B = foreach A generate $0 as id;");
+   pigServer.store("B", "idout");
+   }
+}
+</pre>
+<a name="N1010A"></a><a name="Local+Mode"></a>
+<h3 class="h4">Local Mode</h3>
+<p>This section shows you how to run Pig in local mode, using the Grunt shell, a Pig script, and an embedded program.  </p>
+<p>To run Pig in local mode, you only need access to a single machine. To make things simple, copy these files to your current working directory (you may want to create a temp directory and move to it): </p>
+<ul>
+
+<li>
+<p> The /etc/passwd file </p>
+
+</li>
+
+<li>
+<p> The pig.jar file, created when you build Pig. </p>
+
+</li>
+
+<li>
+<p> The sample code files (id.pig and idlocal.java) located on this page </p>
+
+</li>
+
+</ul>
+<a name="N10128"></a><a name="Grunt+Shell"></a>
+<h4> Grunt Shell</h4>
+<p>To run Pig&rsquo;s Grunt shell in local mode, follow these instructions. </p>
+<p>First, point $PIG_CLASSPATH to the pig.jar file (in your current working directory): 
+</p>
+<pre class="code">
+$ export PIG_CLASSPATH=./pig.jar
+</pre>
+<p> 
+</p>
+<p>From your current working directory, run: 
+</p>
+<pre class="code">
+$ pig -x local
+</pre>
+<p>The Grunt shell is invoked and you can enter commands at the prompt. 
+</p>
+<pre class="code">
+grunt&gt; A = load 'passwd' using PigStorage(':'); 
+grunt&gt; B = foreach A generate $0 as id; 
+grunt&gt; dump B; 
+</pre>
+<a name="N1014A"></a><a name="Script+File"></a>
+<h4>Script File</h4>
+<p>To run a Pig script file in local mode, follow these instructions (which are the same as the Grunt Shell instructions above &ndash; you just include the script file). </p>
+<p>First, point $PIG_CLASSPATH to the pig.jar file (in your current working directory): 
+</p>
+<pre class="code">
+$ export PIG_CLASSPATH=./pig.jar
+</pre>
+<p>From your current working directory, run: </p>
+<pre class="code">
+$ pig -x local id.pig
+</pre>
+<p>The Pig Latin statements are executed and the results are displayed  to your terminal screen. </p>
+<a name="N10165"></a><a name="Embedded+Program"></a>
+<h4> Embedded Program</h4>
+<p>To compile and run an embedded Java/Pig program in local mode, follow these instructions.  </p>
+<p>From your current working directory, compile the program: 
+</p>
+<pre class="code">
+$ javac -cp pig.jar idlocal.java
+</pre>
+<p>Note: idlocal.class is written to your current working directory. Include &ldquo;.&rdquo; in the class path when you run the program. </p>
+<p>From your current working directory, run the program: 
+</p>
+<pre class="code">
+Unix:   $ java -cp pig.jar:. idlocal
+Cygwin: $ java &ndash;cp &lsquo;.;pig.jar&rsquo; idlocal
+</pre>
+<p>To view the results, check the output file, id.out. </p>
+<a name="N10184"></a><a name="Hadoop+Mode"></a>
+<h3 class="h4">Hadoop Mode</h3>
+<p>This section shows you how to run Pig in hadoop (mapreduce) mode, using the Grunt shell, a Pig script, and an embedded program. </p>
+<p>To run Pig in hadoop (mapreduce) mode, you need access to a Hadoop cluster. You also need to copy these files to your home or current working directory. </p>
+<ul>
+
+<li>
+<p> The /etc/passwd file </p>
+
+</li>
+
+<li>
+<p> The pig.jar file, created when you build Pig. </p>
+
+</li>
+
+<li>
+<p> The sample code files (id.pig and idhadoop.java) located on this page </p>
+
+</li>
+
+</ul>
+<a name="N101A2"></a><a name="Grunt+Shell-N101A2"></a>
+<h4>Grunt Shell</h4>
+<p>To run Pig&rsquo;s Grunt shell in hadoop (mapreduce) mode, follow these instructions. When you begin the session, Pig will allocate a 15-node cluster. When you quit the session, Pig will deallocate the nodes. </p>
+<p>From your current working directory, run: 
+</p>
+<pre class="code">
+$ pig
+ or
+$ pig -x mapreduce
+</pre>
+<p>The Grunt shell is invoked and you can enter commands at the prompt. 
+</p>
+<pre class="code">
+grunt&gt; A = load 'passwd' using PigStorage(':'); 
+grunt&gt; B = foreach A generate $0 as id; 
+grunt&gt; dump B; 
+</pre>
+<a name="N101BA"></a><a name="Script+File-N101BA"></a>
+<h4>Script File</h4>
+<p>To run Pig script files in hadoop (mapreduce) mode, follow these instructions (which are the same as the Grunt Shell instructions above &ndash; you just include the script file). Again, Pig will automatically allocate and deallocate a 15-node cluster. </p>
+<p>From your current working directory, run: 
+</p>
+<pre class="code">
+$ pig id.pig
+or
+$ pig -x mapreduce id.pig
+</pre>
+<p>The Pig Latin statements are executed and the results are displayed to your terminal screen. </p>
+<a name="N101CE"></a><a name="Embedded+Program-N101CE"></a>
+<h4>Embedded Program</h4>
+<p>To compile and run an embedded Java/Pig program in hadoop (mapreduce) mode, follow these instructions.  </p>
+<p>First, point $HADOOPDIR to the directory that contains the hadoop-site.xml file. Example: 
+</p>
+<pre class="code">
+$ export HADOOPDIR=/yourHADOOPsite/conf 
+</pre>
+<p>From your current working directory, compile the program: 
+</p>
+<pre class="code">
+$ javac -cp pig.jar idhadoop.java
+</pre>
+<p>Note: idhadoop.class is written to your current working directory. Include &ldquo;.&rdquo; in the class path when you run the program. </p>
+<p>From your current working directory, run the program: 
+</p>
+<pre class="code">
+Unix:   $ java -cp pig.jar:.:$HADOOPDIR idhadoop
+Cygwin: $ java &ndash;cp &lsquo;.;pig.jar;$HADOOPDIR&rsquo; idhadoop
+</pre>
+<p>To view the results, check the idout directory on your Hadoop system. </p>
+</div>
+
+</div>
+<!--+
+    |end content
+    +-->
+<div class="clearboth">&nbsp;</div>
+</div>
+<div id="footer">
+<!--+
+    |start bottomstrip
+    +-->
+<div class="lastmodified">
+<script type="text/javascript"><!--
+document.write("Last Published: " + document.lastModified);
+//  --></script>
+</div>
+<div class="copyright">
+        Copyright &copy;
+         2007-2009 <a href="http://www.apache.org/licenses/">The Apache Software Foundation.</a>
+</div>
+<!--+
+    |end bottomstrip
+    +-->
+</div>
+</body>
+</html>

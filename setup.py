@@ -4,7 +4,7 @@ from distutils.core import setup
 setup(
     name="pigpy",
     packages=['pigpy'],
-    version="0.6",
+    version="0.7",
     license="MIT",
     url="http://pypi.python.org/pypi/pigpy",
     author="Marshall Weir",

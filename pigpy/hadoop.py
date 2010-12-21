@@ -95,7 +95,7 @@ class Hadoop(object):
         
         #First we get all the part files to a temp directory
         temp_directory = tempfile.mkdtemp(dir="/tmp")
-        if self.remote_path_exists(report_path, isDirectory=True):
+        if self.test(report_path, isDirectory=True):
             self.copyToLocal(os.path.join(report_path, "part*"), temp_directory)
         else:
             self.copyToLocal(report_path, temp_directory)

@@ -76,6 +76,7 @@ class Report(object):
             self.__class__.__register_report(self)
 
     def request_caching(self):
+        """Call this to force caching of this report."""
         self.__cache = True
 
     def __get_human_columns(self):
@@ -183,12 +184,15 @@ class PlanRunner(object):
                 if os.path.exists(report_filename):
                     os.remove(report_filename)
 
-    def save_reports(self, folder, header_lookup={}):
+    def save_reports(self, folder, header_lookup={}, over_write=True):
         if os.path.exists(folder):
             #We want to move the old folder if it exists
             if folder.endswith("/"):
                 folder = folder[:-1]
-            shutil.move(folder, "%s-%s.old" % (folder, str(time())))
+            if over_write:
+                shutil.rmtree(folder)
+            else:
+                shutil.move(folder, "%s-%s.old" % (folder, str(time())))
         os.makedirs(folder)
         for report in self._plan.reports:
             name = report.name

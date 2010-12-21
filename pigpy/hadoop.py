@@ -11,22 +11,20 @@ class HDFSError(StandardError):
     pass
     
 class PigError(StandardError):
-    pass
+    def __init__(code):
+        self.error_code = code
+        super(PigError, self).__init__("Pig job had error code %s" % code)
 
 class Hadoop(object):
     
     #Return true if this will be running on a cluster on localhost
-    local_mode = property(lambda self: "file:///" in self.__local_home)
+    local_mode = property(lambda self: "file:///" in self.__name_node)
     
     def __init__(self, local_home, name_node, pig_classpaths):
         self.log = logging.getLogger(__name__)
         self.__name_node = name_node
-        #We can assume all paths are relative to this file
-        #If an absolute path is specified, os.path.join will discard
-        #all previous path components
-        abs_path = os.path.abspath(os.path.dirname(__file__))
-        self.__local_home = os.path.join(abs_path, local_home)
-        self.__pig_classpaths = [os.path.join(abs_path, path) for path in pig_classpaths]
+        self.__local_home = local_home
+        self.__pig_classpaths = pig_classpaths
 
     def __send_to_command_line(self, command):
         self.log.debug(command)
@@ -110,7 +108,6 @@ class Hadoop(object):
             for line in open(os.path.join(temp_directory, filename)):
                 local_file.write(line)
         
-        print >> sys.stderr, "Wrote pig report to %s" % local_filename
         self.log.debug("Wrote pig report to %s" % local_filename)
         
         #finally, clean up after ourselves (rmtree doesn't care if the dir is empty)
@@ -155,4 +152,4 @@ class Hadoop(object):
 
         returncode = self.__send_to_command_line(command)
         if returncode != 0:
-            raise PigError("Pig job had error code %s" % returncode)
+            raise PigError(returncode)

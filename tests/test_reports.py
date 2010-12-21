@@ -1,5 +1,4 @@
 import sys
-sys.path.insert(0, "..")
 import os
 import unittest
 import re
@@ -124,6 +123,3 @@ class test_reports(unittest.TestCase):
         repeated_report = Report("repeated_report", "same random code")
         
         self.assertEqual(report.name, repeated_report.name)
-
-if __name__ == '__main__':
-    unittest.main()
